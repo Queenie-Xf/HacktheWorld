@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 const GLM_ENDPOINT = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
-const GLM_MODEL = "glm-4.7";
+const GLM_MODEL = "glm-4-plus";
 
 export async function POST(request: Request) {
   try {
@@ -16,9 +16,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey =
-      process.env.ZHIPU_API_KEY?.trim() ||
-      process.env.NEXT_PUBLIC_ZHIPU_API_KEY?.trim();
+    const apiKey = process.env.ZHIPU_API_KEY?.trim();
     if (!apiKey) {
       return NextResponse.json(
         { error: "Missing ZHIPU_API_KEY environment variables" },

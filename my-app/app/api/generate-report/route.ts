@@ -118,10 +118,10 @@ export async function POST(request: Request) {
 
     // D. 调用 LLM 生成报告
     const completion = await zhipu.chat.completions.create({
-      model: "glm-4.7",
+      model: "glm-4-plus",
       messages: [{ role: "user", content: finalPrompt }],
       temperature: 0.7,
-      // 强制让模型尽量只输出 JSON (部分模型支持 json_object 模式，GLM-4 通用模式下靠 prompt 约束)
+      // 强制让模型尽量只输出 JSON (部分模型支持 json_object 模式，GLM-4-plus 通用模式下靠 prompt 约束)
     });
 
     const aiContent = completion.choices[0].message.content || "";

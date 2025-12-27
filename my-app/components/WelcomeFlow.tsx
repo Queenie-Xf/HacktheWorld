@@ -66,7 +66,7 @@ const WelcomeFlow: React.FC<WelcomeFlowProps> = ({ onComplete }) => {
   const startCall = async () => {
     setStage("calling");
     setIsConnecting(true);
-    setUserTranscription("GLM-4.7 正在连接，请稍等…");
+    setUserTranscription("GLM-4-plus 正在连接，请稍等…");
 
     try {
       const response = await callGLM(
@@ -74,12 +74,12 @@ const WelcomeFlow: React.FC<WelcomeFlowProps> = ({ onComplete }) => {
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: STARTER_PROMPT },
         ],
-        { model: "glm-4.7" },
+        { model: "glm-4-plus" },
       );
       setUserTranscription(response);
     } catch (error) {
       console.error("Failed to start GLM conversation", error);
-      setUserTranscription("暂时无法连接 GLM-4.7，请稍后再试。");
+      setUserTranscription("暂时无法连接 GLM-4-plus，请稍后再试。");
       setStage("profile_card");
     } finally {
       setIsConnecting(false);
@@ -167,7 +167,7 @@ const WelcomeFlow: React.FC<WelcomeFlowProps> = ({ onComplete }) => {
                 <p className="text-2xl text-slate-400 font-bold italic leading-relaxed opacity-60 whitespace-pre-line">
                   {userTranscription ||
                     (isConnecting
-                      ? "正在连接 GLM-4.7..."
+                      ? "正在连接 GLM-4-plus..."
                       : "正在倾听你的声音...")}
                 </p>
               </div>
