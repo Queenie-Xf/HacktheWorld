@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { Send, Phone, PhoneOff } from "lucide-react";
-import { callGLM, type ChatMessage } from "@/lib/ai-service";
+import { callGLM, type ChatMessage } from "@/lib/aiService";
 
 interface InteractionDockProps {
   onCallEnded: () => void;
