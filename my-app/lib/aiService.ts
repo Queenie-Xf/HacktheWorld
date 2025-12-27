@@ -1,3 +1,4 @@
+// lib/aiService.ts
 export type ChatMessageRole = "system" | "user" | "assistant";
 
 export interface ChatMessage {
@@ -25,32 +26,24 @@ export async function callGLM(
       },
       body: JSON.stringify({
         messages,
-        options,
+        // 确保传递给后端时模型标识符为官方要求的小写
+        options: {
+          ...options,
+          model: options?.model || "glm-4-plus"
+        },
       }),
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(
-        "GLM proxy request failed",
-        response.status,
-        errorText || "Unknown error",
-      );
-      return "GLM-4.7 暂时无法响应，请稍后再试。";
+      return "GLM-4-plus 暂时无法响应，请稍后再试。";
     }
 
     const data = await response.json();
-    const content: string | undefined =
-      data?.choices?.[0]?.message?.content || data?.data?.[0]?.content;
+    const content = data?.choices?.[0]?.message?.content || data?.data?.[0]?.content;
 
-    if (!content || !content.trim()) {
-      console.warn("GLM proxy response was empty.");
-      return "我暂时没有回应，再试一次好吗？";
-    }
-
-    return content.trim();
+    return content?.trim() || "我暂时没有回应，再试一次好吗？";
   } catch (error) {
     console.error("Failed to call GLM proxy:", error);
-    return "调用 GLM-4.7 时遇到问题，请稍后重试。";
+    return "调用 GLM-4-plus 时遇到问题，请稍后重试。";
   }
 }
