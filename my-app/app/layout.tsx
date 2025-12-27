@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// 1. 移除了从 next/font/google 导入 Geist 的代码，防止网络请求
+// 我们删除了原本的 Geist 导入和初始化函数，因为它们需要连接 Google
 
 export const metadata: Metadata = {
   title: "Hack the World - AI Assistant",
@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body
-        className="antialiased font-sans"
+        className="antialiased"
         style={{
-          // 2. 直接定义常用的系统字体栈，确保在没有 Geist 字体时依然美观
+          // 直接使用系统内置字体，不产生任何网络请求，所有人都能秒开网页
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif'
         }}
       >
