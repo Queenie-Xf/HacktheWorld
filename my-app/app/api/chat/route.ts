@@ -86,7 +86,7 @@ export async function POST(request: Request) {
     });
 
     const completion = await zhipu.chat.completions.create({
-      model: "glm-4",  
+      model: "glm-4.7",  
       messages: [
         { role: "system", content: systemPrompt },
         ...contextMessages, 
