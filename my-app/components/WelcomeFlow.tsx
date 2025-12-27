@@ -12,7 +12,7 @@ import {
   Target,
   Activity,
 } from "lucide-react";
-import { callGLM } from "@/lib/ai-service";
+import { callGLM } from "@/lib/aiService";
 import { AppStage, PublicProfile } from "@/lib/types";
 
 interface WelcomeFlowProps {
