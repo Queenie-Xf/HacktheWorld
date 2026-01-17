@@ -1,0 +1,13 @@
+## 1. Implementation
+- [x] 1.1 Add a landing entry state and navigation into the existing home screen (current main page)
+- [x] 1.2 Reuse the existing landing UI from `on-her-way/` (including required assets/scripts such as Three.js and Tailwind theme tokens it depends on)
+- [x] 1.3 Ensure the landing hides the home UI until “开始探索” is clicked (no visible home controls behind it)
+- [x] 1.4 Replace the current phone overlay with the existing On Her Way call flow from `on-her-way/` (voice call modal/logic) and route into the merged post-call experience (Insight Summary base + persona/insight/chat)
+- [x] 1.5 Ensure required dependencies/env are wired for the call flow (`@google/genai`, `GEMINI_API_KEY`, mic permission/error handling)
+- [x] 1.6 Update post-call routing to merge Insight Summary with `on-her-way/` post-call flow (persona/insight/chat)
+- [x] 1.7 First-call persona: generate persona from call transcript and show confirmation modal before entering the merged post-call experience
+- [x] 1.8 Post-call insight: show the `on-her-way/` insight flow overlay after subsequent calls (and return to the Insight Summary base screen after closing)
+- [x] 1.9 Post-call chat: provide access to the `on-her-way/` mentor chat from the Insight Summary screen (preserve conversation state within the session)
+- [x] 1.10 Action → Puzzle: when the user selects a recommended action in the insight flow, open the existing puzzle editor prefilled from that action (and publish it back into My Way)
+- [x] 1.11 Validation: `npm run build` and manual QA checklist (landing → home, phone call opens and handles mic permission, first-call persona, post-call insight overlay, chat access, community toggle still works)
+- [x] 1.12 Post-call navigation: use the `on-her-way` left dock layout and add “自我洞察” as a nav item alongside “AI 导师”

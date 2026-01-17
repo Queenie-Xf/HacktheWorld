@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(openspec validate:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx tsc:*)",
+      "Skill(openspec:apply)",
+      "Skill(openspec:apply:*)",
+      "Bash(npm run dev)",
+      "Bash(openspec list:*)",
+      "Bash(openspec archive add-on-her-way-landing:*)",
+      "Bash(openspec archive add-text-input-to-call:*)",
+      "Bash(npx openspec validate:*)",
+      "Bash(npx openspec list:*)",
+      "Bash(npx openspec archive add-insight-ai-summary:*)",
+      "Bash(npx openspec:*)"
+    ]
+  }
+}
